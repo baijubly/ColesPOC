@@ -20,7 +20,7 @@ public class BaseTest {
 		dc.setCapability("reportFormat", "xml");
 		dc.setCapability("user", getProperty("username", cloudProperties));
 		dc.setCapability("password", getProperty("password", cloudProperties));
-		dc.setCapability("buildnumber", System.getProperty("build"));
+		dc.setCapability("build", System.getProperty("build"));
 		// In case your user is assign to a single project leave empty,
 		// otherwise please specify the project name
 		dc.setCapability("project", getProperty("project", cloudProperties));
