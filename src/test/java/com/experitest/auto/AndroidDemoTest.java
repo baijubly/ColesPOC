@@ -25,10 +25,13 @@ public class AndroidDemoTest extends BaseTest {
 	public void setUp(@Optional("@os='android'") String deviceQuery) throws Exception{
 		init(deviceQuery);
 		// Init application / device capabilities
+
 		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank/.LoginActivity");
 		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.ExperiBank");
 		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".LoginActivity");
-		dc.setCapability("testName", "AndroidDemoTest");
+		dc.setCapability("testName", "AndroidDemoTestDhiraj");
+		String val = System.getenv("BUILD_NUMBER");
+		dc.setCapability("build", val);
 		driver = new AndroidDriver<>(new URL(getProperty("url",cloudProperties) + "/wd/hub"), dc);
 	}
 	
@@ -45,7 +48,6 @@ public class AndroidDemoTest extends BaseTest {
 		  driver.executeScript("client:client.setShowReport(\"true\");");
 		  new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Logout']")));
 		  driver.findElement(By.xpath("//*[@text='Logout']")).click();
-		
 	}
 	
 	@AfterMethod
