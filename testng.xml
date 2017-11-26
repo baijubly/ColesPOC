@@ -7,7 +7,19 @@
       <class name="com.experitest.auto.IOSDemoTest"/>
     </classes>
   </test> Test -->
-  <test name="TestAndroid">
+  <test name="TestAndroid1">
+  	<parameter name="deviceQuery" value="@os='android'"/>
+    <classes>
+      <class name="com.experitest.auto.AndroidDemoTest"/>
+    </classes>
+  </test> <!-- Test -->
+   <test name="TestAndroid2">
+  	<parameter name="deviceQuery" value="@os='android'"/>
+    <classes>
+      <class name="com.experitest.auto.AndroidDemoTest"/>
+    </classes>
+  </test> <!-- Test --> 
+  <test name="TestAndroid3">
   	<parameter name="deviceQuery" value="@os='android'"/>
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest"/>
