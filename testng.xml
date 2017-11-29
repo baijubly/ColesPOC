@@ -18,5 +18,5 @@
     <classes>
       <class name="com.experitest.auto.AndroidDemoTest"/>
     </classes>
-
+  </test> <!-- Test -->
 </suite> <!-- Suite -->
