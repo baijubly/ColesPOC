@@ -27,15 +27,15 @@ public class AndroidDemoTest extends BaseTest {
 	protected AndroidDriver<AndroidElement> driver = null;
 
 	@BeforeTest
-	@Parameters("deviceQuery")
-	public void setUp(@Optional("@os='android'") String deviceQuery) throws Exception{
+	@Parameters({"deviceQuery", "testname"})
+	public void setUp(@Optional("@os='android'") String deviceQuery, String testname) throws Exception{
 		init(deviceQuery);
 		// Init application / device capabilities
 
 		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank/.LoginActivity");
 		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.ExperiBank");
 		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".LoginActivity");
-		dc.setCapability("testName", "AndroidDemoTestDhiraj");
+		dc.setCapability("testName", testname);
 //		dc.setCapability("fullReset", true);
 //		dc.setCapability("instrumentApp", true);
 		String val = System.getenv("BUILD_NUMBER");
