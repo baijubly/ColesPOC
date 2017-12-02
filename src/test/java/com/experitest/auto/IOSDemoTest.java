@@ -32,7 +32,7 @@ public class IOSDemoTest extends BaseTest {
 	}
 
 	@Test
-	public void test() {
+	public void loginTest() {
 		 /* driver.executeScript("client:client.deviceAction(\"Wake\")");
 		  driver.executeScript("client:client.deviceAction(\"Unlock\")");*/
 		//  driver.context("NATIVE_APP_INSTRUMENTED");
