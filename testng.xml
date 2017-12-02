@@ -3,34 +3,28 @@
 <suite name="Suite" parallel="tests">
 <test name="TestAndroid1">
 		<parameter name="deviceQuery" value="@os='android' and @serialnumber='1115fbd4746c2f05'" />
+		<parameter name="testname" value="Login_SamsungS6"/>
 		<classes>
-			<class name="com.experitest.auto.AndroidDemoTest">
-				<methods>
-					<include name="loginTest"></include>
-					<include name="makePaymentTest"></include>
-				</methods>
-			</class>
+			<class name="com.experitest.auto.AndroidDemoTest"/>
 		</classes>
 	</test> 
 <test name="TestAndroid2">
 		<parameter name="deviceQuery" value="@os='android' and @serialnumber='52107cca64d6c311'" />
+		<parameter name="testname" value="Login_SamsungA5"/>
 		<classes>
-			<class name="com.experitest.auto.AndroidDemoTest">
-				<methods>
-					<include name="loginTest"></include>
-					<include name="makePaymentTest"></include>
-				</methods>
-			</class>
+			<class name="com.experitest.auto.AndroidDemoTest"/>
 		</classes>
 	</test>
 <test name="TestIOS1">
   	<parameter name="deviceQuery" value="@os='ios' and @serialnumber='a5f7b2da06f20f32d0cecc1867550144f785d738'"/>
+	<parameter name="testname" value="iPhone7"/>
     <classes>
       <class name="com.experitest.auto.IOSDemoTest"/>
     </classes>
   </test>
   <test name="TestIOS2">
   	<parameter name="deviceQuery" value="@os='ios' and @serialnumber='bb5f832e3ee56f952af3f8ae1983b4de9e4b0951'"/>
+	<parameter name="testname" value="iPhone6Plus"/>
     <classes>
       <class name="com.experitest.auto.IOSDemoTest"/>
     </classes>
