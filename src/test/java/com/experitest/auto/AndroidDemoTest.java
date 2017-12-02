@@ -38,8 +38,6 @@ public class AndroidDemoTest extends BaseTest {
 		dc.setCapability("testName", testname);
 //		dc.setCapability("fullReset", true);
 //		dc.setCapability("instrumentApp", true);
-		String val = System.getenv("BUILD_NUMBER");
-		dc.setCapability("build", val);
 		driver = new AndroidDriver<>(new URL(getProperty("url",cloudProperties) + "/wd/hub"), dc);
 	}
 

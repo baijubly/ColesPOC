@@ -28,8 +28,6 @@ public class IOSDemoTest extends BaseTest {
 		dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
 		dc.setCapability("testName", testname);
 		dc.setCapability("instrumentApp", true);
-		String val = System.getenv("BUILD_NUMBER");
-		dc.setCapability("build", val);
 		driver = new IOSDriver<>(new URL(getProperty("url",cloudProperties) + "/wd/hub"), dc);
 	}
 
