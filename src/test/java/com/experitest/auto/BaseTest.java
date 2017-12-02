@@ -23,9 +23,7 @@ public class BaseTest {
 		// In case your user is assign to a single project leave empty,
 		// otherwise please specify the project name
 		dc.setCapability("project", getProperty("project", cloudProperties));
-		String val = System.getProperty("build");
-		dc.setCapability("test_run_id", val);
-
+		
 	}
 
 	protected String getProperty(String property, Properties props) throws FileNotFoundException, IOException {
