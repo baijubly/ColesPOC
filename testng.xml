@@ -17,7 +17,7 @@
 	</test>
 <test name="TestIOS1">
   	<parameter name="deviceQuery" value="@os='ios' and @serialnumber='a5f7b2da06f20f32d0cecc1867550144f785d738'"/>
-	<parameter name="testname" value="iPhone7"/>
+	<parameter name="testname" value="iPhone6s"/>
     <classes>
       <class name="com.experitest.auto.IOSDemoTest"/>
     </classes>
