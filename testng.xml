@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="tests">
-<test name="TestAndroid1">
+<!-- <test name="TestAndroid1">
 		<parameter name="deviceQuery" value="@os='android'" />
 		<parameter name="testname" value="AndroidTest1"/>
 		<classes>
@@ -22,7 +22,7 @@
       <class name="com.experitest.auto.IOSDemoTest"/>
     </classes>
   </test>
-  <test name="TestIOS2">
+ -->  <test name="TestIOS2">
   	<parameter name="deviceQuery" value="@os='ios'"/>
 	<parameter name="testname" value="iPhoneTest2"/>
     <classes>
