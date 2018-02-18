@@ -25,7 +25,7 @@ public class BaseTest {
 		String val = System.getenv("BUILD_NUMBER");
 		dc.setCapability("build", val);
 		dc.setCapability("project", getProperty("project", cloudProperties));
-		
+		dc.setCapability("testType", "EribankDhiraj");
 	}
 
 	protected String getProperty(String property, Properties props) throws FileNotFoundException, IOException {
