@@ -14,6 +14,7 @@ repositories {
 
 dependencies {
     compile(group: 'com.experitest', name: 'imageClient', version: '+')
+    compile(group: 'com.experitest', name: 'seetest-appium', version: '11.8')
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.5.3'
     compile 'com.experitest:manager-client:1.6'
     compile group: 'org.testng', name: 'testng', version: '6.9.10'
