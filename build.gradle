@@ -14,7 +14,6 @@ repositories {
 
 dependencies {
     compile(group: 'com.experitest', name: 'imageClient', version: '+')
-    compile(group: 'com.experitest', name: 'seetest-appium', version: '10.8')
     compile 'com.experitest:manager-client:1.6'
     compile group: 'org.testng', name: 'testng', version: '6.9.10'
     compile 'org.hamcrest:hamcrest-library:1.3'
