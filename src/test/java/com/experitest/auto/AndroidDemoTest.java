@@ -30,68 +30,35 @@ public class AndroidDemoTest extends BaseTest {
 	@Parameters({"deviceQuery", "testname"})
 	public void setUp(@Optional("@os='android'") String deviceQuery, String testname) throws Exception{
 		init(deviceQuery);
-		// Init application / device capabilities
-
-		dc.setCapability(MobileCapabilityType.APP, "cloud:com.experitest.ExperiBank/.LoginActivity");
-		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.experitest.ExperiBank");
-		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".LoginActivity");
-		dc.setCapability("testName", testname);
-//		dc.setCapability("fullReset", true);
-//		dc.setCapability("instrumentApp", true);
+		dc.setCapability(MobileCapabilityType.APP, "cloud:com.android.daggermultimodule_playground/.MainActivity");
+		dc.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.android.daggermultimodule_playground");
+		dc.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".MainActivity");
+		dc.setCapability("appVersion", "1.0");
+		dc.setCapability("testName", "AndroidDemoTest");
 		driver = new AndroidDriver<>(new URL(getProperty("url",cloudProperties) + "/wd/hub"), dc);
 	}
 
 
 	@Test
-	public void loginTest(){
-	/*	driver.executeScript("client:client.deviceAction(\"Wake\")"); 
-		driver.executeScript("client:client.deviceAction(\"Unlock\")");*/
-		driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
-		driver.executeScript("client:client.setShowReport(\"false\");");
-		driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
-		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Login']")));
-		driver.findElement(By.xpath("//*[@text='Login']")).click();
-		driver.executeScript("client:client.setShowReport(\"true\");");
-		new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Logout']")));
-		driver.findElement(By.xpath("//*[@text='Logout']")).click();
-	}
+	public void test() throws InterruptedException{
+		// Enter the test code
+		    driver.findElement(By.xpath("//*[@text='TOUCH ME!']")).click();
+	        driver.findElement(By.xpath("//*[@text='Coles Supermarkets']")).click();
+	        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Coles Online']")));
+	        driver.findElement(By.xpath("//*[@text='Shop online']")).click();
+	        if(driver.findElements(By.xpath("//*[@text='Your account']")).size()==1) {
+	        	driver.findElement(By.xpath("//*[@text='Your account']")).click();
+	        	driver.findElement(By.xpath("//*[@text='Log out']")).click();
+	        	Thread.sleep(1000);
+	        }else{
+	        	driver.findElement(By.xpath("//*[@text='Login or sign up']")).click();
+	        }	        
+	        driver.findElement(By.xpath("//*[@id='login-email-input']")).sendKeys("baijubly2gmail.com");
+	        new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='login-password-input']")));
+	        driver.findElement(By.xpath("//*[@id='login-password-input']")).sendKeys("test1234");
+	        driver.findElement(By.xpath("//*[@id='keyboardView']")).click();
 
-
-	//@Test
-	public void makePaymentTest(){
-		int randomNum = ThreadLocalRandom.current().nextInt(1, 2 + 1);
-		if(randomNum==2){
-			Assert.fail("Test Failed due to unknown reasons");
-		}
-		else{
-
-//			driver.executeScript("client:client.deviceAction(\"Wake\")");
-//			driver.executeScript("client:client.deviceAction(\"Unlock\")");
-			driver.findElement(By.xpath("//*[@id='usernameTextField']")).sendKeys("company");
-			driver.executeScript("client:client.setShowReport(\"false\");");
-			driver.findElement(By.xpath("//*[@id='passwordTextField']")).sendKeys("company");
-			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Login']")));
-			driver.findElement(By.xpath("//*[@text='Login']")).click();
-			driver.executeScript("client:client.setShowReport(\"true\");");
-			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='makePaymentButton']")));
-			driver.findElement(By.xpath("//*[@id='makePaymentButton']")).click();
-			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='phoneTextField']")));
-			driver.findElement(By.xpath("//*[@id='phoneTextField']")).sendKeys("8888888888");
-			driver.findElement(By.xpath("//*[@id='nameTextField']")).sendKeys("experitest");
-			driver.findElement(By.xpath("//*[@id='amountTextField']")).sendKeys("1");
-			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='countryButton']")));
-			driver.findElement(By.xpath("//*[@id='countryButton']")).click();
-			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Greece']")));
-			driver.findElement(By.xpath("//*[@text='Greece']")).click();
-			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='sendPaymentButton']")));
-			driver.findElement(By.xpath("//*[@id='sendPaymentButton']")).click();
-			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='alertTitle' and @text='EriBank']")));
-			driver.findElement(By.xpath("//*[@id='button1' and @text='Yes']")).click();
-			new WebDriverWait(driver, 30).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Logout']")));
-			driver.findElement(By.xpath("//*[@text='Logout']")).click(); 
-		}
-	}
-
+	        }
 
 
 	@AfterTest
