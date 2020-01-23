@@ -20,29 +20,34 @@ public class IOSDemoTest extends BaseTest {
 	protected IOSDriver<IOSElement> driver = null;
 
 	@BeforeMethod
-	@Parameters({"deviceQuery", "testname"})
-	public void setUp(@Optional("@os='ios'") String deviceQuery, String testname) throws Exception {
+	@Parameters("deviceQuery")
+	public void setUp(@Optional("@os='ios'") String deviceQuery) throws Exception {
 		init(deviceQuery);
 		// Init application / device capabilities
-//		dc.setCapability(MobileCapabilityType.APP, "com.experitest.ExperiBank");
-		dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.experitest.ExperiBank");
-		dc.setCapability("testName", testname);
+	
+	    dc.setCapability(MobileCapabilityType.APP, "cloud:com.app.coles.ios.devdebug");
+		dc.setCapability(IOSMobileCapabilityType.BUNDLE_ID, "com.app.coles.ios.devdebug");
+		dc.setCapability("appVersion", "1");
 		dc.setCapability("instrumentApp", true);
+		dc.setCapability("testName", "IOSDemoTest");
 		driver = new IOSDriver<>(new URL(getProperty("url",cloudProperties) + "/wd/hub"), dc);
 	}
-
 	@Test
-	public void loginTest() {
-		 /* driver.executeScript("client:client.deviceAction(\"Wake\")");
-		  driver.executeScript("client:client.deviceAction(\"Unlock\")");*/
-		//  driver.context("NATIVE_APP_INSTRUMENTED");
-		  new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@accessibilityLabel='Username']")));
-		  driver.findElement(By.xpath("//*[@accessibilityLabel='Username']")).sendKeys("company");
-		  driver.findElement(By.xpath("//*[@accessibilityLabel='Password']")).sendKeys("company");
-		  driver.findElement(By.xpath("//*[@accessibilityLabel='loginButton']")).click();
-		  new WebDriverWait(driver, 10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@accessibilityLabel='logoutButton']")));
-		  driver.findElement(By.xpath("//*[@accessibilityLabel='logoutButton']")).click();
+	public void test() throws InterruptedException {
+		// Enter the test code
+		    driver.findElement(By.xpath("//*[@text='Button']")).click();
+	        driver.findElement(By.xpath("//*[@text='Back']")).click();
+	        driver.findElement(By.xpath("//*[@text='Button']")).click();
+	        driver.findElement(By.xpath("//*[@text='Button']")).click();
+	        driver.findElement(By.xpath("//*[@text='First']")).click();
+	        driver.findElement(By.xpath("//*[@text='Second']")).click();
+	        driver.findElement(By.xpath("//*[@text='Third']")).click();
+	        driver.findElement(By.xpath("//*[@text='Second']")).click();
+	        driver.findElement(By.xpath("//*[@text='First']")).click();
+	        driver.findElement(By.xpath("//*[@text='First']")).click();
+	        driver.findElement(By.xpath("//*[@text='Button']")).click();
 	}
+
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();
