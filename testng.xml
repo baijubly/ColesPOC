@@ -8,13 +8,6 @@
 			<class name="com.experitest.auto.AndroidDemoTest"/>
 		</classes>
 	</test> 
-<test name="TestAndroid2">
-		<parameter name="deviceQuery" value="@os='android'" />
-		<parameter name="testname" value="AndroidTest2"/>
-		<classes>
-			<class name="com.experitest.auto.AndroidDemoTest"/>
-		</classes>
-	</test>
 <test name="TestIOS1">
   	<parameter name="deviceQuery" value="@os='ios'"/>
 	<parameter name="testname" value="iPhoneTest1"/>
@@ -22,11 +15,5 @@
       <class name="com.experitest.auto.IOSDemoTest"/>
     </classes>
   </test>
-  <test name="TestIOS2">
-  	<parameter name="deviceQuery" value="@os='ios'"/>
-	<parameter name="testname" value="iPhoneTest2"/>
-    <classes>
-      <class name="com.experitest.auto.IOSDemoTest"/>
-    </classes>
-  </test>
+
 </suite> <!-- Suite -->
